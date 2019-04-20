@@ -8,6 +8,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,21 +16,21 @@
     <a href="/" class="navbar-brand">GROUPON</a>
     <div class="collapse navbar-collapse" id="navbar1">
         <ul class="navbar-nav">
-            <form class="mx-2 my-auto d-inline w-100">
+            <form class="mx-3 my-auto d-inline w-100" role="form">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder=" please">
+                    <input type="text" class="form-control fa fa-search" placeholder=" &#xf002;  Enter the Keyword ">
                     <span class="input-group-btn">
-                <button class="btn btn-outline-secondary" type="button">GO</button>
+                <button class="btn btn-success" type="button">Search</button>
               </span>
                 </div>
             </form>
         </ul>
         <ul class="navbar-nav ml-auto">
             {% if current_user.is_anonymous %}
+                <li class="nav-item md-inline" style="border-right: 2px solid #3cb371 ">
+                    <a class="nav-link" href="{{ url_for('login') }}">LOG IN  <i class="fa fa-users"></i></a></li>
                 <li class="nav-item md-inline">
-                    <a class="nav-link" href="{{ url_for('login') }}"><i class="fa fa-user"></i>LOG IN</a>
-                <li>|</li>
-                <a class="nav-link" href="{{ url_for('register') }}"><span class="glyphicon glyphicon-user"></span>SIGN UP</a>
+                    <a class="nav-link" href="{{ url_for('register') }}"><i class="fa fa-sign-in"></i> SIGN UP</a>
                 </li>
             {% else %}
                 <li class="nav-item">
