@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>{{ title }} GROUPIN</title>
+    <title>GROUPON - {{ title }} </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -24,21 +24,21 @@
                 </div>
             </form>
         </ul>
-            <ul class="navbar-nav ml-auto">
-                {% if current_user.is_anonymous %}
-                    <li class="nav-item active md-inline">
-                        <a class="nav-link" href="{{ url_for('login') }}">LOG IN</a>
-                    <li>|</li>
-                        <a class="nav-link" href="{{ url_for('register') }}">SIGN UP</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('logout') }}">LOG OUT</a>
-                    <li>|</li>
-                        <a class="nav-link" href="{{ url_for('register') }}">My Profile</a>
-                    </li>
-                {% endif %}
-            </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if current_user.is_anonymous %}
+                <li class="nav-item active md-inline">
+                    <a class="nav-link" href="{{ url_for('login') }}">LOG IN</a>
+                <li>|</li>
+                <a class="nav-link" href="{{ url_for('register') }}">SIGN UP</a>
+                </li>
+            {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('logout') }}">LOG OUT</a>
+                <li>|</li>
+                <a class="nav-link" href="{{ url_for('register') }}">My Profile</a>
+                </li>
+            {% endif %}
+        </ul>
     </div>
 </nav>
 
@@ -50,7 +50,7 @@ faded
     <div class="navbar-collapse collapse navbars" id="navbar1">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Link 2 <span class="sr-only">Home</span></a>
+                <a class="nav-link"py-1" href="{{ url_for('home') }}">Featured</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link 2</a>
