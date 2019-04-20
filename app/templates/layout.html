@@ -1,54 +1,64 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} GROUPIN</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-
-
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                   <div class="navbar-brand">GROUPON</div>
-                </div>
-
-
-
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{ url_for('home') }}">Featured</a></li>
-                        <li><a href="{{ url_for('ttd') }}">Things To Do</a></li>
-                        <li><a href="{{ url_for('bas') }}">Beauty & Spas</a></li>
-                        <li><a href="{{ url_for('loc') }}">Local</a></li>
-                        <li><a href="{{ url_for('goo') }}">Goods</a></li>
-                        <li><a href="{{ url_for('stp') }}">Staff Picks</a></li>
-                        <li>
-                        {%  if current_user.is_anonymous %}
-                            <a href="{{ url_for('login') }}">Login</a>
-                        {% else %}
-                            <a href="{{ url_for('logout') }}">Logout</a>
-                        {% endif %}
-
-                        </li>
-
-                    </ul>
-                </div>
-
-
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">GROUPIN</a>
         </div>
-
+        <ul class="nav nav-tabs nav-justified ">
+        <form class="navbar-form navbar-left" action="/action_page.php">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                        <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+            </div>
+        </form>
+        <li>
+        {%  if current_user.is_anonymous %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li> |</li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% else %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+        </li>
+        </ul>
     </div>
-
-    <div class="container body-content">
+</nav>
+<nav class="navbar navbar-default ">
+    <ul class="nav nav-tabs nav-justified ">
+        <li><a href="{{ url_for('home') }}">Featured</a></li>
+        <li><a href="{{ url_for('ttd') }}">Things To Do</a></li>
+        <li><a href="{{ url_for('bas') }}">Beauty & Spas</a></li>
+        <li><a href="{{ url_for('loc') }}">Local</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="{{ url_for('goo') }}">Goods
+                <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Page 1-1</a></li>
+                <li><a href="#">Page 1-2</a></li>
+                <li><a href="#">Page 1-3</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ url_for('stp') }}">Staff Picks</a></li>
+        <li><a href="#">Page 3</a></li>
+    </ul>
+    </div>
+</nav>
         {% block content %}{% endblock %}
         <hr />
         <footer>
@@ -56,6 +66,5 @@
         </footer>
     </div>
     {% block scripts %}{% endblock %}
-
 </body>
 </html>
