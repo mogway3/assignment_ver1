@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} GROUPIN</title>
+</head>
+
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   <div class="navbar-brand">GROUPON</div>
+                </div>
+
+
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ url_for('home') }}">Featured</a></li>
+                        <li><a href="{{ url_for('ttd') }}">Things To Do</a></li>
+                        <li><a href="{{ url_for('bas') }}">Beauty & Spas</a></li>
+                        <li><a href="{{ url_for('loc') }}">Local</a></li>
+                        <li><a href="{{ url_for('goo') }}">Goods</a></li>
+                        <li><a href="{{ url_for('stp') }}">Staff Picks</a></li>
+                        <li>
+                        {%  if current_user.is_anonymous %}
+                            <a href="{{ url_for('login') }}">Login</a>
+                        {% else %}
+                            <a href="{{ url_for('logout') }}">Logout</a>
+                        {% endif %}
+
+                        </li>
+
+                    </ul>
+                </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="container body-content">
+        {% block content %}{% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; {{ year }} - Kane Miko Emiri</p>
+        </footer>
+    </div>
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>
