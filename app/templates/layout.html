@@ -4,29 +4,41 @@
     <title>{{ title }} GROUPIN</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md bg-green navbar-light">
+<nav class="navbar navbar-expand-md bg-success navbar-dark">
     <a href="/" class="navbar-brand">GROUPON</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbars">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse navbars" id="navbar2">
+    <div class="collapse navbar-collapse" id="navbar1">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
-            </li>
+            <form class="mx-2 my-auto d-inline w-100">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search with the name">
+                    <span class="input-group-btn">
+                <button class="btn btn-outline-secondary" type="button">GO</button>
+              </span>
+                </div>
+            </form>
         </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if current_user.is_anonymous %}
+                    <li class="nav-item active md-inline">
+                        <a class="nav-link" href="{{ url_for('login') }}">LOG IN</a>
+                    <li>|</li>
+                        <a class="nav-link" href="{{ url_for('register') }}">SIGN UP</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('logout') }}">LOG OUT</a>
+                    <li>|</li>
+                        <a class="nav-link" href="{{ url_for('register') }}">My Profile</a>
+                    </li>
+                {% endif %}
+            </ul>
     </div>
 </nav>
 
@@ -91,12 +103,12 @@ faded
         </ul>
     </div>
 </nav>
-        {% block content %}{% endblock %}
-        <hr />
-        <footer>
-            <p>&copy; {{ year }} - Kane Miko Emiri</p>
-        </footer>
-    </div>
-    {% block scripts %}{% endblock %}
+{% block content %}{% endblock %}
+<hr/>
+<footer>
+    <p>&copy; {{ year }} - Kane Miko Emiri</p>
+</footer>
+</div>
+{% block scripts %}{% endblock %}
 </body>
 </html>
