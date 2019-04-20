@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="app">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.11">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="ShoppingList"/>
+    <table id="7" parent="2" name="address"/>
+    <table id="8" parent="2" name="alembic_version"/>
+    <table id="9" parent="2" name="all_items"/>
+    <table id="10" parent="2" name="categories"/>
+    <table id="11" parent="2" name="comment"/>
+    <table id="12" parent="2" name="detail"/>
+    <table id="13" parent="2" name="location"/>
+    <table id="14" parent="2" name="option"/>
+    <table id="15" parent="2" name="role"/>
+    <table id="16" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="17" parent="2" name="subcategories"/>
+    <table id="18" parent="2" name="type"/>
+    <table id="19" parent="2" name="user"/>
+    <column id="20" parent="6" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="6" name="user_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="22" parent="6" name="item_id">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="23" parent="6" name="Bought at">
+      <Position>4</Position>
+      <DataType>DATETIME|0s</DataType>
+    </column>
+    <key id="24" parent="6">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="25" parent="6">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="26" parent="6">
+      <ColNames>item_id</ColNames>
+      <RefTableName>all_items</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="27" parent="7" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="7" name="user_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="29" parent="7" name="address">
+      <Position>3</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="7" name="contact">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="31" parent="7" name="ix_address_address">
+      <ColNames>address</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="32" parent="7" name="ix_address_contact">
+      <ColNames>contact</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="33" parent="7">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="34" parent="7">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="35" parent="8" name="version_num">
+      <Position>1</Position>
+      <DataType>VARCHAR(32)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="36" parent="8" name="sqlite_autoindex_alembic_version_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>version_num</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="8" name="alembic_version_pkc">
+      <ColNames>version_num</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_alembic_version_1</UnderlyingIndexName>
+    </key>
+    <column id="38" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="9" name="category_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="40" parent="9" name="item_name">
+      <Position>3</Position>
+      <DataType>VARCHAR(120)|0s</DataType>
+    </column>
+    <column id="41" parent="9" name="original_price">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="42" parent="9" name="discount_price">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="43" parent="9" name="created">
+      <Position>6</Position>
+      <DataType>DATETIME|0s</DataType>
+    </column>
+    <column id="44" parent="9" name="modified">
+      <Position>7</Position>
+      <DataType>DATETIME|0s</DataType>
+    </column>
+    <index id="45" parent="9" name="ix_all_items_item_name">
+      <ColNames>item_name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="46" parent="9" name="ix_all_items_original_price">
+      <ColNames>original_price</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="47" parent="9" name="ix_all_items_discount_price">
+      <ColNames>discount_price</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="48" parent="9">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="49" parent="9">
+      <ColNames>category_id</ColNames>
+      <RefTableName>categories</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="50" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="10" name="subcategory">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="52" parent="10" name="name">
+      <Position>3</Position>
+      <DataType>VARCHAR(120)|0s</DataType>
+    </column>
+    <index id="53" parent="10" name="ix_categories_name">
+      <ColNames>name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="10">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="10">
+      <ColNames>subcategory</ColNames>
+      <RefTableName>subcategories</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="56" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="11" name="header">
+      <Position>2</Position>
+      <DataType>VARCHAR(140)|0s</DataType>
+    </column>
+    <column id="58" parent="11" name="body">
+      <Position>3</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+    </column>
+    <column id="59" parent="11" name="timestamp">
+      <Position>4</Position>
+      <DataType>DATETIME|0s</DataType>
+    </column>
+    <column id="60" parent="11" name="user_id">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="61" parent="11" name="ix_comment_body">
+      <ColNames>body</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="62" parent="11" name="ix_comment_timestamp">
+      <ColNames>timestamp</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="63" parent="11">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="64" parent="11">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="65" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="12" name="item">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="67" parent="12" name="detail_body">
+      <Position>3</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="12" name="detail_img">
+      <Position>4</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+    </column>
+    <index id="69" parent="12" name="ix_detail_detail_body">
+      <ColNames>detail_body</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="70" parent="12" name="ix_detail_detail_img">
+      <ColNames>detail_img</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="71" parent="12">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="72" parent="12">
+      <ColNames>item</ColNames>
+      <RefTableName>all_items</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="73" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="13" name="item">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="75" parent="13" name="location_name">
+      <Position>3</Position>
+      <DataType>VARCHAR(120)|0s</DataType>
+    </column>
+    <column id="76" parent="13" name="region">
+      <Position>4</Position>
+      <DataType>VARCHAR(120)|0s</DataType>
+    </column>
+    <index id="77" parent="13" name="ix_location_location_name">
+      <ColNames>location_name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="78" parent="13" name="ix_location_region">
+      <ColNames>region</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="79" parent="13">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="80" parent="13">
+      <ColNames>item</ColNames>
+      <RefTableName>all_items</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="81" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="14" name="item">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="83" parent="14" name="body">
+      <Position>3</Position>
+      <DataType>VARCHAR(120)|0s</DataType>
+    </column>
+    <index id="84" parent="14" name="ix_option_body">
+      <ColNames>body</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="85" parent="14">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="86" parent="14">
+      <ColNames>item</ColNames>
+      <RefTableName>all_items</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="87" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="15" name="role_name">
+      <Position>2</Position>
+      <DataType>VARCHAR(50)|0s</DataType>
+    </column>
+    <index id="89" parent="15" name="ix_role_role_name">
+      <ColNames>role_name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="90" parent="15">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="91" parent="16" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="92" parent="16" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="93" parent="16" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="94" parent="16" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="95" parent="16" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="96" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="17" name="type">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="98" parent="17" name="name">
+      <Position>3</Position>
+      <DataType>VARCHAR(120)|0s</DataType>
+    </column>
+    <index id="99" parent="17" name="ix_subcategories_name">
+      <ColNames>name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="100" parent="17">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="101" parent="17">
+      <ColNames>type</ColNames>
+      <RefTableName>type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="102" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="18" name="type_name">
+      <Position>2</Position>
+      <DataType>VARCHAR(60)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="104" parent="18" name="ix_type_type_name">
+      <ColNames>type_name</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="105" parent="18">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="106" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="107" parent="19" name="username">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)|0s</DataType>
+    </column>
+    <column id="108" parent="19" name="email">
+      <Position>3</Position>
+      <DataType>VARCHAR(120)|0s</DataType>
+    </column>
+    <column id="109" parent="19" name="password_hash">
+      <Position>4</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+    </column>
+    <column id="110" parent="19" name="permission">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="111" parent="19" name="ix_user_username">
+      <ColNames>username</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="112" parent="19" name="ix_user_email">
+      <ColNames>email</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="113" parent="19">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="114" parent="19">
+      <ColNames>permission</ColNames>
+      <RefTableName>role</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
