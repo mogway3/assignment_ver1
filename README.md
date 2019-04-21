@@ -7,13 +7,11 @@ MUST TO DO:
 > ~~Add 12 tables~~  
 > ~~Create User Page~~  
 > ~~Login/Logout~~  
-> Edit User Profile Page  
-> Delete User Page  
+> Edit/Delete User Profile Page  
 > ~~View ALL Item Page~~  
 > Item Detail Page (with count down)  
 > Add Item Page  
-> Edit Item Profile Page  
-> Delete Item Page  
+> Edit/Delete Item Profile Page    
 > Depoly to AWS (I think depoly at AWS lamba)
 -----------------------------------------------------------------------------------------------
 IF CAN:  
