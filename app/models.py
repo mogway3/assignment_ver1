@@ -20,7 +20,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    permission = db.Column(db.Integer, db.ForeignKey('role.id'),default=2)
+    last_login = db.Column(db.DateTime, default=datetime.utcnow)
+    permission = db.Column(db.Integer, db.ForeignKey('role.id'), default=2)
     useraddress = db.relationship('Address', backref='useraddress', lazy="dynamic")
     shoppingrecord = db.relationship('Log', backref='shoppingrecord', lazy="dynamic")
 
@@ -158,3 +159,20 @@ class Comment(db.Model):
 
     def __repr__(self):
         return '<comment {}>'.format(self.body)
+
+
+class Company(db.Model):
+    __tablename__ = 'company'
+    id = db.Column(db.Integer, primary_key=True)
+    company_name = db.Column(db.String(140), nullable=False)
+    company_type = db.Column(db.String(140))
+    promotion = db.relationship('Promo', backref='companypr', lazy='dynamic')
+
+
+class Promo(db.Model):
+    __tablename__ = 'promo'
+    id = db.Column(db.Integer, primary_key=True)
+    starttime = db.Column(db.DateTime, default=datetime.utcnow)
+    endtime = db.Column(db.DateTime)
+    promoimg = db.Column(db.String(120))
+    companyname = db.Column(db.String(140), db.ForeignKey('company.company_name'))

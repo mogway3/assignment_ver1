@@ -9,13 +9,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:900" rel="stylesheet">
 </head>
 
 <body>
 <nav class="navbar navbar-expand-md bg-success navbar-dark navbar-inverse">
-    <a href="/" class="navbar-brand">GROUPON</a>
+    <a href="/" class="navbar-brand" style="font-family: 'Catamaran', sans-serif;">GROUPON</a>
     <div class="collapse navbar-collapse" id="navbar1">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav w-80">
             <form class="mx-3 my-auto d-inline w-100" role="form">
                 <div class="input-group">
                     <input type="text" class="form-control fa fa-search" placeholder=" &#xf002;  Enter the Keyword ">
@@ -28,15 +29,19 @@
         <ul class="navbar-nav ml-auto">
             {% if current_user.is_anonymous %}
                 <li class="nav-item md-inline" style="border-right: 2px solid #3cb371 ">
-                    <a class="nav-link" href="{{ url_for('login') }}">LOG IN  <i class="fa fa-users"></i></a></li>
+                    <a class="nav-link" href="{{ url_for('login') }}">LOG IN <i class="fa fa-users"></i></a></li>
                 <li class="nav-item md-inline">
                     <a class="nav-link" href="{{ url_for('register') }}"><i class="fa fa-sign-in"></i> SIGN UP</a>
                 </li>
             {% else %}
+                <li class="nav-item"  style="border-right: 2px solid #3cb371 ">
+                    <a class="nav-link" href="{{ url_for('register') }}">Shopping Cart</a>
+                </li>
+                <li class="nav-item"  style="border-right: 2px solid #3cb371 ">
+                    <a class="nav-link" href="{{ url_for('home') }}">My Profile</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('logout') }}">LOG OUT</a>
-                <li>|</li>
-                <a class="nav-link" href="{{ url_for('register') }}">My Profile</a>
                 </li>
             {% endif %}
         </ul>
@@ -48,7 +53,7 @@ faded
 -->
 <nav class="navbar navbar-expand-sm bg-white navbar-light">
     <div class="navbar-collapse collapse navbars" id="navbar1">
-        <ul class="navbar-nav nav-tabs nav-justified w-100">
+        <ul class="navbar-nav nav-pills nav-justified w-100">
             <li class="nav-item">
                 <a class="nav-link  py-1" href="{{ url_for('home') }}">Featured</a>
             </li>

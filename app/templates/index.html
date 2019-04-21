@@ -1,5 +1,37 @@
 {% extends "layout.html" %}
-
+<head>
+    <meta charset="utf-8">
+    <title>Featured</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
 {% block content %}
-
+<div class="container-fluid" style="text-align: center;margin: 10px"><img src="//placehold.it/728x90"></div>
+Hi , treat yourself to a great deal today
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-body">
+                <h2 class="text-center"><span class="badge badge-danger">Snippets</span></h2>
+                <h1 class="text-center">311</h1>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-body">
+                <h2 class="text-center"><span class="badge badge-danger">Downloads</span></h2>
+                <h1 class="text-center">982</h1>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-body">
+                <h2 class="text-center"><span class="badge badge-danger">Sales</span></h2>
+                <h1 class="text-center">112</h1>
+            </div>
+        </div>
+    </div><!--/row-->
+</div><!--container-->
 {% endblock %}
