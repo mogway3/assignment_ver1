@@ -112,6 +112,7 @@ class Detail(db.Model):
     item = db.Column(db.Integer, db.ForeignKey('all_items.id'))
     detail_body = db.Column(db.String(200), nullable=False, index=True)
     detail_img = db.Column(db.String(200), index=True)
+    detail_tunmb = db.Column(db.String(200), index=True)
 
     def __repr__(self):
         return '<detail {}>'.format(self.detail_body)
