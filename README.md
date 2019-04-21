@@ -10,7 +10,7 @@ MUST TO DO:
 > Edit User Profile Page  
 > Delete User Page  
 > ~~View ALL Item Page~~  
-> Item Detail Page (with count down)
+> Item Detail Page (with count down)  
 > Add Item Page  
 > Edit Item Profile Page  
 > Delete Item Page  
