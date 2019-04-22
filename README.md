@@ -13,6 +13,7 @@ MUST TO DO:
 > Add Item Page  
 > Edit/Delete Item Profile Page    
 > Depoly to AWS (I think depoly at AWS lamba)
+> ~~Report~~  
 -----------------------------------------------------------------------------------------------
 IF CAN:  
 > Change Role  
