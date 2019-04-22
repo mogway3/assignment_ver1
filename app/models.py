@@ -98,8 +98,9 @@ class Item(db.Model):
     discount_price = db.Column(db.Integer, index=True)
     created_at = db.Column('created', db.DateTime, default=datetime.utcnow)
     updated_at = db.Column('modified', db.DateTime, default=datetime.utcnow)
+    finish_at = db.Column('finished', db.DateTime)
     location = db.relationship('Location', backref='Company Location', lazy="dynamic")
-    detail = db.relationship('Detail', backref='Item Detail', lazy="dynamic")
+    detail = db.relationship('Detail', backref='Item Detail')
     Logs = db.relationship('Log', backref='Item Name', lazy="dynamic")
 
     def __repr__(self):
@@ -112,10 +113,8 @@ class Detail(db.Model):
     item = db.Column(db.Integer, db.ForeignKey('all_items.id'))
     detail_body = db.Column(db.String(200), nullable=False, index=True)
     detail_img = db.Column(db.String(200), index=True)
-    detail_tunmb = db.Column(db.String(200), index=True)
+    detail_thumb = db.Column(db.String(200), index=True)
 
-    def __repr__(self):
-        return '<detail {}>'.format(self.detail_body)
 
 
 class Location(db.Model):
@@ -176,4 +175,4 @@ class Promo(db.Model):
     starttime = db.Column(db.DateTime, default=datetime.utcnow)
     endtime = db.Column(db.DateTime)
     promoimg = db.Column(db.String(120))
-    companyname = db.Column(db.String(140), db.ForeignKey('company.company_name'))
+    company = db.Column(db.Integer, db.ForeignKey('company.id'))

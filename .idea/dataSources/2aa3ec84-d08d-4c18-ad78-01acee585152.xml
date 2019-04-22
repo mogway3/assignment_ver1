@@ -141,360 +141,368 @@
       <Position>7</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <index id="47" parent="9" name="ix_all_items_item_name">
+    <column id="47" parent="9" name="finished">
+      <Position>8</Position>
+      <DataType>DATETIME|0s</DataType>
+    </column>
+    <index id="48" parent="9" name="ix_all_items_item_name">
       <ColNames>item_name</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="48" parent="9" name="ix_all_items_original_price">
+    <index id="49" parent="9" name="ix_all_items_original_price">
       <ColNames>original_price</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="49" parent="9" name="ix_all_items_discount_price">
+    <index id="50" parent="9" name="ix_all_items_discount_price">
       <ColNames>discount_price</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="50" parent="9">
+    <key id="51" parent="9">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="51" parent="9">
+    <foreign-key id="52" parent="9">
       <ColNames>category_id</ColNames>
       <RefTableName>categories</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="52" parent="10" name="id">
+    <column id="53" parent="10" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="53" parent="10" name="subcategory">
+    <column id="54" parent="10" name="subcategory">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="54" parent="10" name="name">
+    <column id="55" parent="10" name="name">
       <Position>3</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <index id="55" parent="10" name="ix_categories_name">
+    <index id="56" parent="10" name="ix_categories_name">
       <ColNames>name</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="56" parent="10">
+    <key id="57" parent="10">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="57" parent="10">
+    <foreign-key id="58" parent="10">
       <ColNames>subcategory</ColNames>
       <RefTableName>subcategories</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="58" parent="11" name="id">
+    <column id="59" parent="11" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="59" parent="11" name="header">
+    <column id="60" parent="11" name="header">
       <Position>2</Position>
       <DataType>VARCHAR(140)|0s</DataType>
     </column>
-    <column id="60" parent="11" name="body">
+    <column id="61" parent="11" name="body">
       <Position>3</Position>
       <DataType>VARCHAR(200)|0s</DataType>
     </column>
-    <column id="61" parent="11" name="timestamp">
+    <column id="62" parent="11" name="timestamp">
       <Position>4</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <column id="62" parent="11" name="user_id">
+    <column id="63" parent="11" name="user_id">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <index id="63" parent="11" name="ix_comment_body">
+    <index id="64" parent="11" name="ix_comment_body">
       <ColNames>body</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="64" parent="11" name="ix_comment_timestamp">
+    <index id="65" parent="11" name="ix_comment_timestamp">
       <ColNames>timestamp</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="65" parent="11">
+    <key id="66" parent="11">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="66" parent="11">
+    <foreign-key id="67" parent="11">
       <ColNames>user_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="67" parent="12" name="id">
+    <column id="68" parent="12" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="12" name="company_name">
+    <column id="69" parent="12" name="company_name">
       <Position>2</Position>
       <DataType>VARCHAR(140)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="69" parent="12" name="company_type">
+    <column id="70" parent="12" name="company_type">
       <Position>3</Position>
       <DataType>VARCHAR(140)|0s</DataType>
     </column>
-    <key id="70" parent="12">
+    <key id="71" parent="12">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="71" parent="13" name="id">
+    <column id="72" parent="13" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="72" parent="13" name="item">
+    <column id="73" parent="13" name="item">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="73" parent="13" name="detail_body">
+    <column id="74" parent="13" name="detail_body">
       <Position>3</Position>
       <DataType>VARCHAR(200)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="74" parent="13" name="detail_img">
+    <column id="75" parent="13" name="detail_img">
       <Position>4</Position>
       <DataType>VARCHAR(200)|0s</DataType>
     </column>
-    <index id="75" parent="13" name="ix_detail_detail_body">
+    <column id="76" parent="13" name="detail_thumb">
+      <Position>5</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+    </column>
+    <index id="77" parent="13" name="ix_detail_detail_body">
       <ColNames>detail_body</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="76" parent="13" name="ix_detail_detail_img">
+    <index id="78" parent="13" name="ix_detail_detail_img">
       <ColNames>detail_img</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="77" parent="13">
+    <key id="79" parent="13">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="78" parent="13">
+    <foreign-key id="80" parent="13">
       <ColNames>item</ColNames>
       <RefTableName>all_items</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="79" parent="14" name="id">
+    <column id="81" parent="14" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="80" parent="14" name="item">
+    <column id="82" parent="14" name="item">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="81" parent="14" name="location_name">
+    <column id="83" parent="14" name="location_name">
       <Position>3</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <column id="82" parent="14" name="region">
+    <column id="84" parent="14" name="region">
       <Position>4</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <index id="83" parent="14" name="ix_location_location_name">
+    <index id="85" parent="14" name="ix_location_location_name">
       <ColNames>location_name</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="84" parent="14" name="ix_location_region">
+    <index id="86" parent="14" name="ix_location_region">
       <ColNames>region</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="85" parent="14">
+    <key id="87" parent="14">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="86" parent="14">
+    <foreign-key id="88" parent="14">
       <ColNames>item</ColNames>
       <RefTableName>all_items</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="87" parent="15" name="id">
+    <column id="89" parent="15" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="88" parent="15" name="item">
+    <column id="90" parent="15" name="item">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="89" parent="15" name="body">
+    <column id="91" parent="15" name="body">
       <Position>3</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <index id="90" parent="15" name="ix_option_body">
+    <index id="92" parent="15" name="ix_option_body">
       <ColNames>body</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="91" parent="15">
+    <key id="93" parent="15">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="92" parent="15">
+    <foreign-key id="94" parent="15">
       <ColNames>item</ColNames>
       <RefTableName>all_items</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="93" parent="16" name="id">
+    <column id="95" parent="16" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="94" parent="16" name="starttime">
+    <column id="96" parent="16" name="starttime">
       <Position>2</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <column id="95" parent="16" name="endtime">
+    <column id="97" parent="16" name="endtime">
       <Position>3</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <column id="96" parent="16" name="promoimg">
+    <column id="98" parent="16" name="promoimg">
       <Position>4</Position>
-      <DataType>VARCHAR(120)|0s</DataType>
+      <DataType>VARCHAR(200)|0s</DataType>
     </column>
-    <column id="97" parent="16" name="companyname">
+    <column id="99" parent="16" name="company">
       <Position>5</Position>
-      <DataType>VARCHAR(140)|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
     </column>
-    <key id="98" parent="16">
+    <key id="100" parent="16">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="99" parent="16">
-      <ColNames>companyname</ColNames>
+    <foreign-key id="101" parent="16">
+      <ColNames>company</ColNames>
       <RefTableName>company</RefTableName>
-      <RefColNames>company_name</RefColNames>
+      <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="100" parent="17" name="id">
+    <column id="102" parent="17" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="101" parent="17" name="role_name">
+    <column id="103" parent="17" name="role_name">
       <Position>2</Position>
       <DataType>VARCHAR(50)|0s</DataType>
     </column>
-    <index id="102" parent="17" name="ix_role_role_name">
+    <index id="104" parent="17" name="ix_role_role_name">
       <ColNames>role_name</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="103" parent="17">
+    <key id="105" parent="17">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="104" parent="18" name="type">
+    <column id="106" parent="18" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="105" parent="18" name="name">
+    <column id="107" parent="18" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="106" parent="18" name="tbl_name">
+    <column id="108" parent="18" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="107" parent="18" name="rootpage">
+    <column id="109" parent="18" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="108" parent="18" name="sql">
+    <column id="110" parent="18" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="109" parent="19" name="id">
+    <column id="111" parent="19" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="110" parent="19" name="type">
+    <column id="112" parent="19" name="type">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="111" parent="19" name="name">
+    <column id="113" parent="19" name="name">
       <Position>3</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <index id="112" parent="19" name="ix_subcategories_name">
+    <index id="114" parent="19" name="ix_subcategories_name">
       <ColNames>name</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="113" parent="19">
+    <key id="115" parent="19">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="114" parent="19">
+    <foreign-key id="116" parent="19">
       <ColNames>type</ColNames>
       <RefTableName>type</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="115" parent="20" name="id">
+    <column id="117" parent="20" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="116" parent="20" name="type_name">
+    <column id="118" parent="20" name="type_name">
       <Position>2</Position>
       <DataType>VARCHAR(60)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="117" parent="20" name="ix_type_type_name">
+    <index id="119" parent="20" name="ix_type_type_name">
       <ColNames>type_name</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="118" parent="20">
+    <key id="120" parent="20">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="119" parent="21" name="id">
+    <column id="121" parent="21" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="120" parent="21" name="username">
+    <column id="122" parent="21" name="username">
       <Position>2</Position>
       <DataType>VARCHAR(64)|0s</DataType>
     </column>
-    <column id="121" parent="21" name="email">
+    <column id="123" parent="21" name="email">
       <Position>3</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <column id="122" parent="21" name="password_hash">
+    <column id="124" parent="21" name="password_hash">
       <Position>4</Position>
       <DataType>VARCHAR(128)|0s</DataType>
     </column>
-    <column id="123" parent="21" name="permission">
+    <column id="125" parent="21" name="permission">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="124" parent="21" name="last_login">
+    <column id="126" parent="21" name="last_login">
       <Position>6</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <index id="125" parent="21" name="ix_user_username">
+    <index id="127" parent="21" name="ix_user_username">
       <ColNames>username</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="126" parent="21" name="ix_user_email">
+    <index id="128" parent="21" name="ix_user_email">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="127" parent="21">
+    <key id="129" parent="21">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="128" parent="21">
+    <foreign-key id="130" parent="21">
       <ColNames>permission</ColNames>
       <RefTableName>role</RefTableName>
       <RefColNames>id</RefColNames>

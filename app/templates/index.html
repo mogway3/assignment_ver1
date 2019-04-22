@@ -10,40 +10,46 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 {% block content %}
-    <div class="container-fluid" style="text-align: center;"><img src="//placehold.it/728x90"></div>
-    <h3>Hi , treat yourself to a great deal today</h3>
-    <div class="container">
-        <div class="card-group">
-            <a class="caard-link" href="#">
-                <div class="card border-0 ">
-                    <img class="card-img-top" src="//placehold.it/349x211/">
-                    <div class="card-body">
-                        <h5 class="card-title">title</h5>
-                        <p class="card-text">details</p>
+    {% for i in item %}
+        <div class="container-fluid" style="text-align: center;"><img src="//placehold.it/728x90"></div>
+        <h3>Hi {% if current_user.is_anonymous %}
+            ^-^ !
+        {% else %}
+            {{ current_user.username }}
+        {% endif %}! Treat yourself to a great deal today</h3>
+        <div class="container">
+            <div class="card-group">
+                <a class="caard-link" href="#">
+                    <div class="card border-0 ">
+                        <img class="card-img-top" style="width: 50%;" src="{{ i.detail_thumb }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ i.item_name }}</h5>
+                            <p class="card-text">{{ i.detail_body }}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="card border-0  mx-3">
-                    <img class="card-img-top" src="//placehold.it/349x211/">
-                    <div class="card-body">
-                        <h5 class="card-title">title</h5>
-                        <p class="card-text">details</p>
+                </a>
+                <a href="#">
+                    <div class="card border-0 ">
+                        <img class="card-img-top" style="width: 50%;" src="{{ i.detail_thumb }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ i.item_name }}</h5>
+                            <p class="card-text">{{ i.detail_body }}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="card border-0 ">
-                    <img class="card-img-top" src="//placehold.it/349x211/">
-                    <div class="card-body">
-                        <h5 class="card-title">title</h5>
-                        <p class="card-text">details</p>
+                </a>
+                <a href="#">
+                    <div class="card border-0 ">
+                        <img class="card-img-top" src="//placehold.it/349x211/">
+                        <div class="card-body">
+                            <h5 class="card-title">title</h5>
+                            <p class="card-text">details</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
+            <!--/row-->
         </div>
-        <!--/row-->
-    </div>
-    <!--container-->
-    </div>
+        <!--container-->
+        </div>
+    {% endfor %}
 {% endblock %}

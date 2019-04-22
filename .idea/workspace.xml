@@ -9,7 +9,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/assignment$assignment.coverage" NAME="assignment Coverage Results" MODIFIED="1555841697897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/assignment$assignment.coverage" NAME="assignment Coverage Results" MODIFIED="1555927556837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -41,6 +41,20 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="app" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="categories: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="app" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="detail: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="app" type="feb32156:DbDataSourceImpl" />
         <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
@@ -55,14 +69,15 @@
     <session id="892067396">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="14" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="3" />
           <entry key="project.open.time.27" value="3" />
-          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.29" value="2" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.33" value="1" />
@@ -72,30 +87,34 @@
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="README" value="1" />
-          <entry key="address" value="1" />
-          <entry key="all_items" value="1" />
-          <entry key="categories" value="5" />
-          <entry key="company" value="1" />
+          <entry key="address" value="2" />
+          <entry key="all_items" value="7" />
+          <entry key="categories" value="8" />
+          <entry key="comment" value="1" />
+          <entry key="company" value="2" />
           <entry key="css" value="2" />
-          <entry key="detail" value="1" />
-          <entry key="html" value="42" />
+          <entry key="detail" value="9" />
+          <entry key="html" value="45" />
+          <entry key="jpg" value="3" />
           <entry key="location" value="1" />
+          <entry key="mako" value="1" />
           <entry key="permission" value="1" />
-          <entry key="promo" value="1" />
-          <entry key="py" value="43" />
+          <entry key="png" value="1" />
+          <entry key="promo" value="4" />
+          <entry key="py" value="49" />
           <entry key="role" value="10" />
           <entry key="shoppinglist" value="1" />
-          <entry key="sql" value="15" />
+          <entry key="sql" value="19" />
           <entry key="sqlite_master" value="4" />
-          <entry key="subcategories" value="3" />
-          <entry key="type" value="4" />
-          <entry key="user" value="19" />
+          <entry key="subcategories" value="5" />
+          <entry key="type" value="5" />
+          <entry key="user" value="23" />
           <entry key="userrole" value="4" />
           <entry key="users" value="1" />
         </counts>
@@ -103,46 +122,69 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="2" />
-          <entry key="Database Element" value="58" />
-          <entry key="HTML" value="42" />
+          <entry key="Database Element" value="88" />
+          <entry key="HTML" value="45" />
+          <entry key="Image" value="4" />
+          <entry key="Mako" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="43" />
-          <entry key="SQL" value="5" />
-          <entry key="Scratch" value="10" />
+          <entry key="Python" value="49" />
+          <entry key="SQL" value="6" />
+          <entry key="Scratch" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="92" />
-          <entry key="cell" value="537" />
+          <entry key="cell" value="622" />
           <entry key="dummy" value="10" />
-          <entry key="html" value="1593" />
-          <entry key="py" value="5730" />
-          <entry key="sql" value="107" />
+          <entry key="html" value="1999" />
+          <entry key="py" value="6575" />
+          <entry key="sql" value="198" />
           <entry key="txt" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1593" />
+          <entry key="HTML" value="1999" />
           <entry key="PLAIN_TEXT" value="18" />
-          <entry key="Python" value="5822" />
+          <entry key="Python" value="6667" />
           <entry key="SQL" value="38" />
-          <entry key="Scratch" value="606" />
+          <entry key="Scratch" value="782" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+            <state relative-caret-position="380">
+              <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#a#1;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="183" selection-start-line="12" selection-start-column="183" selection-end-line="12" selection-end-column="183" />
+              <folding>
+                <element signature="e#0#68#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-361">
+              <caret line="37" column="63" selection-start-line="37" selection-start-column="63" selection-end-line="37" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -199,12 +241,13 @@
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/app/templates/register.html" />
-        <option value="$PROJECT_DIR$/app/views.py" />
         <option value="$PROJECT_DIR$/app/forms.py" />
         <option value="$PROJECT_DIR$/app/templates/profile.html" />
-        <option value="$PROJECT_DIR$/app/models.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2aa3ec84-d08d-4c18-ad78-01acee585152/console.sql" />
         <option value="$PROJECT_DIR$/app/templates/layout.html" />
+        <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/app/templates/index.html" />
+        <option value="$PROJECT_DIR$/app/views.py" />
       </list>
     </option>
   </component>
@@ -214,7 +257,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="950" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
@@ -225,6 +268,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -241,17 +285,46 @@
               <item name="assignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="assignment" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="item" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="promo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Edit As Language" value="GenericSQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -260,16 +333,17 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\user\PycharmProjects\assignment\app\static\img\promo" />
-      <recent name="C:\Users\user\PycharmProjects\assignment" />
-      <recent name="C:\Users\user\PycharmProjects\assignment\static" />
-      <recent name="C:\Users\user\PycharmProjects\assignment\templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\PycharmProjects\assignment\app" />
       <recent name="C:\Users\user\PycharmProjects\assignment" />
       <recent name="C:\Users\user\PycharmProjects\assignment\app\static\content" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\assignment\app\templates" />
+      <recent name="C:\Users\user\PycharmProjects\assignment\app\static\img\item" />
+      <recent name="C:\Users\user\PycharmProjects\assignment\app\static\img\promo" />
+      <recent name="C:\Users\user\PycharmProjects\assignment" />
+      <recent name="C:\Users\user\PycharmProjects\assignment\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -284,7 +358,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flask server.assignment">
+    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/assignment/app/templates/index.html">
+      <method v="2" />
+    </configuration>
     <configuration name="assignment" type="Python.FlaskServer" factoryName="Flask server">
       <option name="additionalOptions" value="" />
       <option name="application" value="" />
@@ -302,6 +379,15 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Flask server.assignment" />
+      <item itemvalue="JavaScript Debug.index.html" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -317,15 +403,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23221476" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24228188" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.32152975" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.33286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -341,7 +427,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.3295302" />
-      <window_info anchor="right" id="Database" order="4" weight="0.23892617" />
+      <window_info anchor="right" id="Database" order="4" weight="0.24832214" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,32 +444,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="changed" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://89a51d5a-74b9-4f91-bb77-69ebf8b032ee/schema/main/table/role" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/89a51d5a-74b9-4f91-bb77-69ebf8b032ee/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="44" selection-start-column="44" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/cart.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/thingstodo.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://bb8325e2-fd90-4982-8aa5-f7f52e277831/schema/main/table/user" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5af817e4-d9b0-4011-a0ee-133e76defb4d/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://5af817e4-d9b0-4011-a0ee-133e76defb4d/schema/main/table/user" />
     <entry file="das://5af817e4-d9b0-4011-a0ee-133e76defb4d/schema/main/table/role" />
     <entry file="das://5af817e4-d9b0-4011-a0ee-133e76defb4d/schema/main/table/type" />
     <entry file="das://d5d43c9c-c046-45fa-afee-9920ff923c85/schema/main/table/role" />
@@ -395,13 +455,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/post.py" />
-    <entry file="file://$PROJECT_DIR$/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://1ff82358-9271-4e4e-b22c-8c6f55d31d6f/schema/main/table/sqlite_master" />
     <entry file="das://1ff82358-9271-4e4e-b22c-8c6f55d31d6f/schema/main/table/role" />
     <entry file="das://1ff82358-9271-4e4e-b22c-8c6f55d31d6f/schema/main/table/user" />
@@ -424,17 +477,8 @@
     <entry file="file://$PROJECT_DIR$/app/templates/view.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/all_items" />
-    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/categories" />
     <entry file="file://$PROJECT_DIR$/app/templates/edit.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -443,8 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/type" />
-    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/address" />
     <entry file="file://$PROJECT_DIR$/app/templates/profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -466,10 +508,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/promo">
+    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/location">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/script.py.mako">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114" />
+      </provider>
+    </entry>
+    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/address">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/all_items.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/comment">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2aa3ec84-d08d-4c18-ad78-01acee585152/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -480,14 +562,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/location">
+    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/promo">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
+    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/type">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/img/promo/c349x211q85.jpg" />
+    <entry file="file://$PROJECT_DIR$/app/static/img/promo/37-1056x100.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/img/promo/13657930516954343586.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/img/item/c349x211beauty.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="92" column="31" lean-forward="true" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <marker date="1555922285183" expanded="true" signature="482:483" ph="..." />
+            <marker date="1555922285183" expanded="true" signature="1870:2183" ph="..." />
+            <marker date="1555922285183" expanded="true" signature="3949:4279" ph="..." />
+            <marker date="1555922285183" expanded="true" signature="4679:4945" ph="..." />
+            <marker date="1555922285183" expanded="true" signature="6047:6052" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-361">
+          <caret line="37" column="63" selection-start-line="37" selection-start-column="63" selection-end-line="37" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/subcategories">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/categories">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/all_items">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -501,24 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2251">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <marker date="1555825438741" expanded="true" signature="1330:1335" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://2aa3ec84-d08d-4c18-ad78-01acee585152/schema/main/table/detail">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -526,34 +657,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models.py">
+    <entry file="file://$PROJECT_DIR$/app/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2185">
-          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+        <state relative-caret-position="380">
+          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <marker date="1555840485630" expanded="true" signature="482:483" ph="..." />
-            <marker date="1555840485630" expanded="true" signature="1870:2183" ph="..." />
-            <marker date="1555840485630" expanded="true" signature="3914:4322" ph="..." />
-            <marker date="1555840485630" expanded="true" signature="4722:4988" ph="..." />
-            <marker date="1555840485630" expanded="true" signature="6090:6095" ph="..." />
+            <element signature="n#style#0;n#img#0;n#div#0;n#a#1;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/layout.html">
+    <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="53" column="68" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+        <state relative-caret-position="228">
+          <caret line="12" column="183" selection-start-line="12" selection-start-column="183" selection-end-line="12" selection-end-column="183" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#68#0" expanded="true" />
           </folding>
         </state>
       </provider>

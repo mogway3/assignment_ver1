@@ -4,30 +4,35 @@ from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app.forms import LoginForm, RegistrationForm
 from app import app, db
-from app.models import User
+from app.models import User,Item,Detail,Address
 
 
 @app.route('/')
 @app.route('/home')
 def home():
-    """Renders the top page."""
+    item = db.session.query(Item.item_name,Item.original_price,Item.discount_price,Detail.detail_body,Detail.detail_img,Detail.detail_thumb).outerjoin(Detail,Item.id==Detail.item).all()
+
     return render_template(
         'index.html',
         title='Home Page',
         year=datetime.now().year,
-    )
+    item=item)
 
 
 @app.route('/thingstodo')
 def ttd():
+    """Renders the thingstodo page."""
     return render_template(
         'thingstodo.html',
         title='Things To Do',
-        year=datetime.now().year)
+        year=datetime.now().year,
+        message='Your contact page.'
+    )
 
 
 @app.route('/beautyandspa')
 def bas():
+    """Renders the beauty page."""
     return render_template(
         'beauty.html',
         title='Beauty And Spa',
@@ -38,6 +43,7 @@ def bas():
 
 @app.route('/local')
 def loc():
+    """Renders the locao page."""
     return render_template(
         'local.html',
         title='Local',
@@ -71,31 +77,6 @@ def stp():
 @app.route('/shoppingcart')
 def cart():
     return render_template('cart.html')
-
-
-@app.route('/delete')
-def delete_item():
-    return render_template('delete.html')
-
-
-@app.route('/additem')
-def add_item():
-    return render_template('create.html')
-
-
-@app.route('/edit/<pk>')
-def edit_item(pk):
-    return render_template('edit.html')
-
-
-@app.route('/delete/<pk>')
-def delete(pk):
-    return redirect(url_for('home'))
-
-
-@app.route('/view/<pk>')
-def view(pk):
-    return render_template('view.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -135,7 +116,3 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
