@@ -4,18 +4,19 @@ from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app.forms import LoginForm, RegistrationForm
 from app import app, db
-from app.models import User,Item,Detail,Address
+from app.models import User,Item,Detail,Promo
 
 
 @app.route('/')
 @app.route('/home')
 def home():
     item = db.session.query(Item.item_name,Item.original_price,Item.discount_price,Detail.detail_body,Detail.detail_img,Detail.detail_thumb).outerjoin(Detail,Item.id==Detail.item).order_by(Item.id).all()
+    promo = Promo.query.all()
     return render_template(
         'index.html',
         title='Home Page',
         year=datetime.now().year,
-    item=item)
+    item=item,promo=promo)
 
 
 @app.route('/thingstodo')

@@ -10,7 +10,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 {% block content %}
-    <div class="container-fluid" style="text-align: center;"><img src="//placehold.it/728x90"></div>
+    {%  for pr in promo %}
+    <div class="container-fluid" style="text-align: center;"><img src="{{ pr.promoimg }}"></div>
+    {% endfor %}
     <h3>Hi {% if current_user.is_anonymous %}
     ^-^ !
     {% else %}
@@ -39,7 +41,6 @@
                 </div>
             {% endfor %}
         </div>
-        <!--/row-->
     </div>
     <!--container-->
 {% endblock %}
