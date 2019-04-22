@@ -10,8 +10,7 @@ from app.models import User,Item,Detail,Address
 @app.route('/')
 @app.route('/home')
 def home():
-    item = db.session.query(Item.item_name,Item.original_price,Item.discount_price,Detail.detail_body,Detail.detail_img,Detail.detail_thumb).outerjoin(Detail,Item.id==Detail.item).all()
-
+    item = db.session.query(Item.item_name,Item.original_price,Item.discount_price,Detail.detail_body,Detail.detail_img,Detail.detail_thumb).outerjoin(Detail,Item.id==Detail.item).order_by(Item.id).all()
     return render_template(
         'index.html',
         title='Home Page',
