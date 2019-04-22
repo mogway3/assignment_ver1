@@ -10,4 +10,18 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 {% block content %}
+        <table>
+            <tr valign="top">
+                <td><img src="//placehold.it/100x100/"></td>
+                <td>
+                    <h1>User: {{ user.username }}</h1>
+                    <p>Address : {{ pro.address }}</p>
+                    {% if user.last_login %}<p>Last Login on: {{ user.last_login }}</p>{% endif %}
+                    {% if user == current_user %}
+                        <p><a href="{{ url_for('home') }}">Edit your profile</a></p>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <hr>
 {% endblock %}

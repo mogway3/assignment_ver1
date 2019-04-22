@@ -38,7 +38,7 @@
                     <a class="nav-link" href="{{ url_for('register') }}">Shopping Cart</a>
                 </li>
                 <li class="nav-item" style="border-right: 2px solid #3cb371 ">
-                    <a class="nav-link" href="{{ url_for('home') }}">My Profile</a>
+                    <a class="nav-link" href="{{ url_for('profile',username=current_user.username) }}">My Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('logout') }}">LOG OUT</a>
