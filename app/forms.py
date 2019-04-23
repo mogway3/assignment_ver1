@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, TextAreaField,SelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError, URL
 from wtforms.fields.html5 import DateTimeField
 from app.models import User, Item
@@ -38,9 +38,9 @@ class EditProfileForm(FlaskForm):
 
 
 class ItemForm(FlaskForm):
-    itemid=IntegerField('ItemId',validators=[DataRequired()])
+    itemid = IntegerField('ItemId', validators=[DataRequired()])
     itemname = StringField('Itemname', validators=[DataRequired()])
-    categories = SelectField('Catagories',coerce=int, validators=[DataRequired()])
+    categories = SelectField('Catagories', coerce=int, validators=[DataRequired()])
     original = IntegerField('Original Price', validators=[DataRequired()])
     discount = IntegerField('Discount Price', validators=[DataRequired()])
     start = DateTimeField('Start Date', default=datetime.today)
@@ -60,9 +60,3 @@ class ItemForm(FlaskForm):
         if itemid is not None:
             raise ValidationError('Please use a different Number.')
 
-    def validate_on_submit(self):
-        result = super(ItemForm, self).validate()
-        if (self.start.data > self.end.data):
-            return False
-        else:
-            return result

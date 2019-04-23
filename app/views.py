@@ -2,9 +2,9 @@ from flask import render_template, flash, redirect, url_for, request
 from datetime import datetime
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
-from app.forms import LoginForm, RegistrationForm, EditProfileForm,ItemForm
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, ItemForm
 from app import app, db
-from app.models import User, Item, Detail, Promo, Address,Categories
+from app.models import User, Item, Detail, Promo, Address, Categories
 
 
 @app.before_request
@@ -131,21 +131,24 @@ def register():
 @login_required
 def profile(username):
     user = User.query.filter_by(username=username).first_or_404()
-    pro = db.session.query(User).outerjoin(Address).filter(User.id==current_user.id).all()
+    pro = Address.query.join(User).all()
     return render_template('profile.html', user=user, pro=pro)
 
 
 @app.route('/newitem', methods=['GET', 'POST'])
 @login_required
 def newitem():
-    catnow=db.session.query(Categories).all()
-    cat = [(i.id,i.name)for i in catnow]
+    catnow = db.session.query(Categories).all()
+    cat = [(i.id, i.name) for i in catnow]
     form = ItemForm()
     form.categories.choices = cat
     if form.validate_on_submit():
-        item = Item(id=form.itemid.data,item_name=form.itemname.data, category_id=form.categories.data,original_price=form.original.data,discount_price=form.discount.data,created_at=form.start.data,finish_at=form.end.data)
-        detail = Detail(item=form.itemid.data,detail_body=form.detail.data,detail_img=form.image.data,detail_thumb=form.thumbnail.data)
+        item = Item(id=form.itemid.data, item_name=form.itemname.data, category_id=form.categories.data,
+                    original_price=form.original.data, discount_price=form.discount.data, created_at=form.start.data,
+                    finish_at=form.end.data)
         db.session.add(item)
+        detail = Detail(item=form.itemid.data, detail_body=form.detail.data, detail_img=form.image.data,
+                        detail_thumb=form.thumbnail.data)
         db.session.add(detail)
         db.session.commit()
         flash('Congratulations, you are a new item')
