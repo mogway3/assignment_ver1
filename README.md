@@ -10,7 +10,7 @@ MUST TO DO:
 > Edit/Delete User Profile Page  
 > ~~View ALL Item Page~~  
 > Item Detail Page (with count down)  
-> Add Item Page  
+> ~~Add Item Page~~  
 > Edit/Delete Item Profile Page    
 > Depoly to AWS (I think depoly at AWS lamba)
 > ~~Report~~  
