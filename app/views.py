@@ -4,7 +4,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ItemForm
 from app import app, db
-from app.models import User, Item, Detail, Promo, Address, Categories
+from app.models import User, Item, Detail, Promo, Address, Categories, Subcategories, Type
 
 
 @app.before_request
@@ -30,9 +30,13 @@ def home():
 
 @app.route('/thingstodo')
 def ttd():
-    """Renders the thingstodo page."""
+    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
+                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
+        outerjoin(Categories,Categories.id==Item.category_id).outerjoin(Subcategories,Subcategories.id==Categories.subcategory) \
+        .outerjoin(Type,Type.id==Subcategories.type).filter(Type.id==3).order_by(Item.id).all()
+    promo = Promo.query.all()
     return render_template(
-        'thingstodo.html',
+        'view.html',
         title='Things To Do',
         year=datetime.now().year,
         message='Your contact page.'
@@ -41,12 +45,16 @@ def ttd():
 
 @app.route('/beautyandspa')
 def bas():
-    """Renders the beauty page."""
+    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
+                                       Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item).\
+        outerjoin(Categories,Categories.id==Item.category_id).outerjoin(Subcategories,Subcategories.id==Categories.subcategory)\
+        .outerjoin(Type,Type.id==Subcategories.type).filter(Type.id==2).order_by(Item.id).all()
+    promo = Promo.query.all()
     return render_template(
-        'beauty.html',
+        'view.html',
         title='Beauty And Spa',
         year=datetime.now().year,
-        message='Your application description page.'
+        item=item, promo=promo
     )
 
 
@@ -54,7 +62,7 @@ def bas():
 def loc():
     """Renders the locao page."""
     return render_template(
-        'local.html',
+        'view.html',
         title='Local',
         year=datetime.now().year,
         message='Your contact page.'
@@ -63,9 +71,13 @@ def loc():
 
 @app.route('/goods')
 def goo():
-    """Renders the goods page."""
+    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
+                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
+        outerjoin(Categories,Categories.id==Item.category_id).outerjoin(Subcategories,Subcategories.id==Categories.subcategory) \
+        .outerjoin(Type,Type.id==Subcategories.type).filter(Type.id==1).order_by(Item.id).all()
+    promo = Promo.query.all()
     return render_template(
-        'goods.html',
+        'view.html',
         title='Goods',
         year=datetime.now().year,
         message='Your contact page.'
@@ -76,7 +88,7 @@ def goo():
 def stp():
     """Renders the  page."""
     return render_template(
-        'staffpicks.html',
+        'view.html',
         title='Staffs Pick Up',
         year=datetime.now().year,
         message='Your contact page.'

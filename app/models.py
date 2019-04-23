@@ -22,7 +22,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     last_login = db.Column(db.DateTime, default=datetime.utcnow)
     permission = db.Column(db.Integer, db.ForeignKey('role.id'), default=2)
-    useraddress = db.relationship('Address', backref='useraddress', lazy="dynamic")
+    useraddress = db.relationship('Address', backref='useraddress')
     shoppingrecord = db.relationship('Log', backref='shoppingrecord', lazy="dynamic")
 
     def __repr__(self):
@@ -57,7 +57,7 @@ class Type(db.Model):
     __tablename__ = 'type'
     id = db.Column(db.Integer, primary_key=True)
     type_name = db.Column(db.String(60), nullable=False, index=True)
-    subcategoriestype = db.relationship('Subcategories', backref='Item type', lazy="dynamic")
+    subcategoriestype = db.relationship('Subcategories', backref='Item type')
 
 
 def __repr__(self):
@@ -70,7 +70,7 @@ class Subcategories(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.Integer, db.ForeignKey('type.id'))
     name = db.Column(db.String(120), index=True, unique=True)
-    acategories = db.relationship('Categories', backref='Sub_categories', lazy="dynamic")
+    acategories = db.relationship('Categories', backref='Sub_categories')
 
     def __repr__(self):
         return '<sub category {}>'.format(self.name)
@@ -82,7 +82,7 @@ class Categories(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     subcategory = db.Column(db.Integer, db.ForeignKey('subcategories.id'))
     name = db.Column(db.String(120), index=True, unique=True)
-    item = db.relationship('Item', backref='Item Categories', lazy="dynamic")
+    item = db.relationship('Item', backref='Item Categories')
 
     def __repr__(self):
         return '<category {}>'.format(self.name)
