@@ -226,4 +226,4 @@ def deleteitem(item_name):
     item = Item.query.filter_by(item_name=item_name).delete()
     db.session.commit()
     flash('Congratulations, you are delete the Item!')
-    return redirect(url_for('Home'))
+    return redirect(url_for('home'))
