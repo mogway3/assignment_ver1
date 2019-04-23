@@ -69,10 +69,10 @@ faded
                 <a class="nav-link dropdown-toggle bg-white"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Goods
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">a</a>
-                    <a class="dropdown-item" href="#">b</a>
+                    <a class="dropdown-item" href="{{ url_for('mens') }}">mens</a>
+                    <a class="dropdown-item" href="{{ url_for('womens') }}">womens</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">all</a>
+                    <a class="dropdown-item" href="{{ url_for('goo') }}">all</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -87,6 +87,10 @@ faded
 <footer>
     <p>&copy; {{ year }} - Kane Miko Emiri</p>
 </footer>
-{% block scripts %}{% endblock %}
+{% if current_user.is_anonymous %}
+Thank you for you visiting!!
+{% else %}
+<a class="navbar-link text-center" href="{{ url_for('newitem') }}">add new item</a><br>
+{% endif %}
 </body>
 </html>

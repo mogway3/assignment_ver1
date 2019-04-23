@@ -40,7 +40,7 @@ def ttd():
         'view.html',
         title='Things To Do',
         year=datetime.now().year,
-        message='Your contact page.'
+        message='Your contact page.',item=item, promo=promo
     )
 
 
@@ -83,18 +83,52 @@ def goo():
         'view.html',
         title='Goods',
         year=datetime.now().year,
-        message='Your contact page.'
+        message='Your contact page.',
+        item=item, promo=promo
     )
 
+@app.route('/goods/mens')
+def mens():
+    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
+                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
+        outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,
+                                                                           Subcategories.id == Categories.subcategory) \
+        .filter(Subcategories.id == 7).order_by(Item.id).all()
+    promo = Promo.query.all()
+    return render_template(
+        'view.html',
+        title='Goods',
+        year=datetime.now().year,
+        message='Your contact page.',
+        item=item, promo=promo
+    )
+
+@app.route('/goods/womens')
+def womens():
+    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
+                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
+        outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,
+                                                                           Subcategories.id == Categories.subcategory) \
+        .filter(Subcategories.id == 6).order_by(Item.id).all()
+    promo = Promo.query.all()
+    return render_template(
+        'view.html',
+        title='Goods',
+        year=datetime.now().year,
+        message='Your contact page.',
+        item=item, promo=promo
+    )
 
 @app.route('/staffpicks')
 def stp():
-    """Renders the  page."""
+    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,Subcategories.id == Categories.subcategory) .filter(Subcategories.id == 3).order_by(Item.id).all()
+    promo = Promo.query.all()
     return render_template(
         'view.html',
         title='Staffs Pick Up',
         year=datetime.now().year,
-        message='Your contact page.'
+        message='Your contact page.',
+        item=item,promo=promo
     )
 
 
