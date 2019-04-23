@@ -1,8 +1,8 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, make_response
 from datetime import datetime
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, ItemForm,EditItemForm
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, ItemForm, EditItemForm
 from app import app, db
 from app.models import User, Item, Detail, Promo, Address, Categories, Subcategories, Type
 
@@ -12,6 +12,19 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_login = datetime.utcnow()
         db.session.commit()
+
+
+@app.route('/set')
+def set():
+    response = make_response('setcookie-')
+    response.set_cookie('cookie_name', 'shopping')
+    return response
+
+
+@app.route('/get')
+def get():
+    v = request.cookies.get('cookie_name')
+    return v
 
 
 @app.route('/')
@@ -40,7 +53,7 @@ def ttd():
         'view.html',
         title='Things To Do',
         year=datetime.now().year,
-        message='Your contact page.',item=item, promo=promo
+        message='Your contact page.', item=item, promo=promo
     )
 
 
@@ -87,6 +100,7 @@ def goo():
         item=item, promo=promo
     )
 
+
 @app.route('/goods/mens')
 def mens():
     item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
@@ -102,6 +116,7 @@ def mens():
         message='Your contact page.',
         item=item, promo=promo
     )
+
 
 @app.route('/goods/womens')
 def womens():
@@ -119,16 +134,21 @@ def womens():
         item=item, promo=promo
     )
 
+
 @app.route('/staffpicks')
 def stp():
-    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,Subcategories.id == Categories.subcategory) .filter(Subcategories.id == 3).order_by(Item.id).all()
+    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
+                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item).outerjoin(
+        Categories, Categories.id == Item.category_id).outerjoin(Subcategories,
+                                                                 Subcategories.id == Categories.subcategory).filter(
+        Subcategories.id == 3).order_by(Item.id).all()
     promo = Promo.query.all()
     return render_template(
         'view.html',
         title='Staffs Pick Up',
         year=datetime.now().year,
         message='Your contact page.',
-        item=item,promo=promo
+        item=item, promo=promo
     )
 
 
@@ -210,7 +230,8 @@ def newitem():
 @app.route('/item/<item_name>')
 def page(item_name):
     it = Item.query.filter_by(item_name=item_name).first()
-    data = (db.session.query(Detail.detail_body,Detail.detail_img, Detail.detail_thumb).outerjoin(Item, Detail.item == Item.id).filter(
+    data = (db.session.query(Detail.detail_body, Detail.detail_img, Detail.detail_thumb).outerjoin(Item,
+                                                                                                   Detail.item == Item.id).filter(
         Item.item_name == item_name)).first()
     return render_template(
         'page.html',
@@ -219,6 +240,7 @@ def page(item_name):
         it=it,
         data=data
     )
+
 
 @app.route('/delete/<item_name>', methods=['GET', 'POST'])
 @login_required
