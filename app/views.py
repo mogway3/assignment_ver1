@@ -143,7 +143,7 @@ def register():
 @login_required
 def profile(username):
     user = User.query.filter_by(username=username).first_or_404()
-    pro = Address.query.join(User).all()
+    pro = db.session.query(User.username,Address.address,Address.contact).outerjoin(Address,Address.user_id==User.id).all()
     return render_template('profile.html', user=user, pro=pro)
 
 
@@ -166,3 +166,15 @@ def newitem():
         flash('Congratulations, you are a new item')
         return redirect(url_for('home'))
     return render_template('create.html', title='Add new item', form=form)
+
+
+@app.route('/item/<item_name>')
+def page(item_name):
+    item = (db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
+                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item).filter(Item.item_name==item_name)).first()
+    return render_template(
+        'page.html',
+        title=item_name,
+        year=datetime.now().year,
+        item=item
+    )

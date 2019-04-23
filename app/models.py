@@ -8,7 +8,7 @@ class Role(db.Model):
     __tablename__ = 'role'
     id = db.Column(db.Integer, primary_key=True)
     role_name = db.Column(db.String(50), index=True, unique=True)
-    role_user = db.relationship('User', backref='roleuser', lazy="dynamic")
+    role_user = db.relationship('User', backref='roleuser')
 
     def __repr__(self):
         return '<role {}>'.format(self.role_name)
@@ -82,7 +82,7 @@ class Categories(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     subcategory = db.Column(db.Integer, db.ForeignKey('subcategories.id'))
     name = db.Column(db.String(120), index=True, unique=True)
-    item = db.relationship('Item', backref='Item Categories')
+    item = db.relationship('Item', backref='Categories')
 
     def __repr__(self):
         return '<category {}>'.format(self.name)

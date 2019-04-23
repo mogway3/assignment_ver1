@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 <head>
     <meta charset="utf-8">
-    <title>Featured</title>
+    <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -10,25 +10,16 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 {% block content %}
-    {% for pr in promo %}
-        <div class="container-fluid" style="text-align: center;"><img src="{{ pr.promoimg }}"></div>
-    {% endfor %}
-    <h3>Hi {% if current_user.is_anonymous %}
-        ^-^ !
-    {% else %}
-        {{ current_user.username }}
-    {% endif %}! Treat yourself to a great deal today</h3>
+    <h4>{{ title }}</h4>
     <div class="container">
         <div class="card-group">
             {% for i in item %}
-                <a class="card-link" href="{{ url_for('page',item_name=i.item_name) }}">
+                <a class="card-link" href="#">
                     <div class="card border-0  ml-1" style="width: 20rem;">
                         <img class="card-img-top" style="size: auto;" src="{{ i.detail_thumb }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ i.item_name }}</h5>
-                            <p class="card-text">
-                                <small class="text-muted text-right">{{ i.detail_body }}</small>
-                            </p>
+                            <p class="card-text"><small class="text-muted text-right">{{ i.detail_body }}</small></p>
                         </div>
                     </div>
                 </a>
