@@ -175,14 +175,15 @@ def newitem():
 
 @app.route('/item/<item_name>')
 def page(item_name):
-    item = (db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
-                             Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item).filter(
+    it = Item.query.filter_by(item_name=item_name).first()
+    data = (db.session.query(Detail.detail_body,Detail.detail_img, Detail.detail_thumb).outerjoin(Item, Detail.item == Item.id).filter(
         Item.item_name == item_name)).first()
     return render_template(
         'page.html',
         title=item_name,
         year=datetime.now().year,
-        item=item
+        it=it,
+        data=data
     )
 
 @app.route('/edit/<item_name>', methods=['GET', 'POST'])
@@ -191,20 +192,18 @@ def edititem(item_name):
                             Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
         outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,
                                                                            Subcategories.id == Categories.subcategory) \
-        .outerjoin(Type, Type.id == Subcategories.type).filter(Item.item_name==item_name).all()
+        .outerjoin(Type, Type.id == Subcategories.type).filter(Item.item_name==item_name).first()
     catnow = db.session.query(Categories).all()
     cat = [(i.id, i.name) for i in catnow]
     form = EditItemForm()
     form.categories.choices = cat
     if form.validate_on_submit():
-        item.id=form.itemid.data
         item.item_name=form.itemname.data
         item.category_id=form.categories.data
         item.original_price=form.original.data
         item.discount_price=form.discount.data
         item.created_at=form.start.data
         item.finish_at=form.end.data
-        item.item=form.itemid.data
         item.detail_body=form.detail.data
         item.detail_img=form.image.data,
         item.detail_thumb=form.thumbnail.data

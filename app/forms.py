@@ -62,7 +62,6 @@ class ItemForm(FlaskForm):
 
 
 class EditItemForm(FlaskForm):
-    itemid = IntegerField('ItemId', validators=[DataRequired()])
     itemname = StringField('Itemname', validators=[DataRequired()])
     categories = SelectField('Catagories', coerce=int, validators=[DataRequired()])
     original = IntegerField('Original Price', validators=[DataRequired()])
@@ -78,8 +77,3 @@ class EditItemForm(FlaskForm):
         item = Item.query.filter_by(item_name=itemname.data).first()
         if item is not None:
             raise ValidationError('Please use a different name.')
-
-    def validate_itemid(self, itemid):
-        itemid = Item.query.filter_by(id=itemid.data).first()
-        if itemid is not None:
-            raise ValidationError('Please use a different Number.')

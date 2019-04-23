@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>Change Items</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.itemname.label }}<br>
+            {{ form.itemname(size=64) }}<br>
+            {% for error in form.itemname.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.categories.label }}<br>
+            {{ form.categories }}<br>
+            {% for error in form.categories.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.original.label }}<br>
+            {{ form.original(size=32) }}<br>
+            {% for error in form.original.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.discount.label }}<br>
+            {{ form.discount(size=32) }}<br>
+            {% for error in form.discount.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.start.label }}<br>
+            {{ form.start }}<br>
+            {% for error in form.start.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.end.label }}<br>
+            {{ form.end }}<br>
+            {% for error in form.end.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.detail.label }}<br>
+            {{ form.detail(size=200) }}<br>
+            {% for error in form.detail.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.thumbnail.label }}<br>
+            {{ form.thumbnail(size=100) }}<br>
+            {% for error in form.thumbnail.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.image.label }}<br>
+            {{ form.image(size=100) }}<br>
+            {% for error in form.image.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

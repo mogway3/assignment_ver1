@@ -10,30 +10,20 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 {% block content %}
-    <h4>{{ title }}</h4>
-    <div class="container">
-        <div class="card-group">
-            {% for i in item %}
-                <a class="card-link" href="#">
-                    <div class="card border-0  ml-1" style="width: 20rem;">
-                        <img class="card-img-top" style="size: auto;" src="{{ i.detail_thumb }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ i.item_name }}</h5>
-                            <p class="card-text"><small class="text-muted text-right">{{ i.detail_body }}</small></p>
-                        </div>
-                    </div>
-                </a>
-            {% else %}
-                <a href="#">
-                <div class="card border-0 ">
-                    <img class="card-img-top" style="width: 50%;" src="//placehold.it/349x211/">
-                    <div class="card-body">
-                        <h5 class="card-title">title</h5>
-                        <p class="card-text">details</p>
-                    </div>
-                </div>
-            {% endfor %}
+    <div class="row w-100">
+        <div class="col-md-9">
+            <h4>{{ title }}</h4>
+            <div class="container">
+                <img src="//placehold.it/1200X800/" style="width:50%;height:50%;">
+            </div>
+            <div class="container">
+                <h4>Details</h4>
+                <h5></h5>
+            </div>
+        </div>
+        <div class="col-md-3 align-self-center">Origina Price :
+            <br>
         </div>
     </div>
-    <!--container-->
+    {{ it.original_price }}
 {% endblock %}
