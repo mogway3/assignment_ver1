@@ -220,29 +220,10 @@ def page(item_name):
         data=data
     )
 
-@app.route('/edit/<item_name>', methods=['GET', 'POST'])
-def edititem(item_name):
-    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
-                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
-        outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,
-                                                                           Subcategories.id == Categories.subcategory) \
-        .outerjoin(Type, Type.id == Subcategories.type).filter(Item.item_name==item_name).first()
-    catnow = db.session.query(Categories).all()
-    cat = [(i.id, i.name) for i in catnow]
-    form = EditItemForm()
-    form.categories.choices = cat
-    if form.validate_on_submit():
-        item.item_name=form.itemname.data
-        item.category_id=form.categories.data
-        item.original_price=form.original.data
-        item.discount_price=form.discount.data
-        item.created_at=form.start.data
-        item.finish_at=form.end.data
-        item.detail_body=form.detail.data
-        item.detail_img=form.image.data,
-        item.detail_thumb=form.thumbnail.data
-        db.session.add(item)
-        db.session.commit()
-        flash('Congratulations, you are changed the Item!')
-        return redirect(url_for('Home'))
-    return render_template('edit.html', title='Edit Item', form=form)
+@app.route('/delete/<item_name>', methods=['GET', 'POST'])
+@login_required
+def deleteitem(item_name):
+    item = Item.query.filter_by(item_name=item_name).delete()
+    db.session.commit()
+    flash('Congratulations, you are delete the Item!')
+    return redirect(url_for('Home'))

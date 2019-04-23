@@ -29,9 +29,10 @@
             <h2>Discount Price : {{ it.discount_price }}</h2>
             <br>
         </div>
-        <div class="countdown">
-            Limited Time Only!
-            <span id="clock"></span>
-        </div>
     </div>
+    {% if current_user.is_anonymous %}
+        Thank you for you visiting!!
+    {% else %}
+        <a class="navbar-link text-center" href="{{ url_for('deleteitem',item_name=it.item_name) }}">delete this item</a><br>
+    {% endif %}
 {% endblock %}
