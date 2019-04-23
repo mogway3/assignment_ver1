@@ -60,3 +60,26 @@ class ItemForm(FlaskForm):
         if itemid is not None:
             raise ValidationError('Please use a different Number.')
 
+
+class EditItemForm(FlaskForm):
+    itemid = IntegerField('ItemId', validators=[DataRequired()])
+    itemname = StringField('Itemname', validators=[DataRequired()])
+    categories = SelectField('Catagories', coerce=int, validators=[DataRequired()])
+    original = IntegerField('Original Price', validators=[DataRequired()])
+    discount = IntegerField('Discount Price', validators=[DataRequired()])
+    start = DateTimeField('Start Date', default=datetime.today)
+    end = DateTimeField('End Date', default=datetime.today)
+    detail = TextAreaField('Detail', validators=[DataRequired()])
+    thumbnail = StringField('Thumbnail Link', validators=[DataRequired(), URL()])
+    image = StringField('Image Link', validators=[DataRequired(), URL()])
+    submit = SubmitField('Submit')
+
+    def validate_itemname(self, itemname):
+        item = Item.query.filter_by(item_name=itemname.data).first()
+        if item is not None:
+            raise ValidationError('Please use a different name.')
+
+    def validate_itemid(self, itemid):
+        itemid = Item.query.filter_by(id=itemid.data).first()
+        if itemid is not None:
+            raise ValidationError('Please use a different Number.')

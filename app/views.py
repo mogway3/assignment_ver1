@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from datetime import datetime
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, ItemForm
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, ItemForm,EditItemForm
 from app import app, db
 from app.models import User, Item, Detail, Promo, Address, Categories, Subcategories, Type
 
@@ -32,8 +32,9 @@ def home():
 def ttd():
     item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
                             Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
-        outerjoin(Categories,Categories.id==Item.category_id).outerjoin(Subcategories,Subcategories.id==Categories.subcategory) \
-        .outerjoin(Type,Type.id==Subcategories.type).filter(Type.id==3).order_by(Item.id).all()
+        outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,
+                                                                           Subcategories.id == Categories.subcategory) \
+        .outerjoin(Type, Type.id == Subcategories.type).filter(Type.id == 3).order_by(Item.id).all()
     promo = Promo.query.all()
     return render_template(
         'view.html',
@@ -46,9 +47,10 @@ def ttd():
 @app.route('/beautyandspa')
 def bas():
     item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
-                                       Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item).\
-        outerjoin(Categories,Categories.id==Item.category_id).outerjoin(Subcategories,Subcategories.id==Categories.subcategory)\
-        .outerjoin(Type,Type.id==Subcategories.type).filter(Type.id==2).order_by(Item.id).all()
+                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
+        outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,
+                                                                           Subcategories.id == Categories.subcategory) \
+        .outerjoin(Type, Type.id == Subcategories.type).filter(Type.id == 2).order_by(Item.id).all()
     promo = Promo.query.all()
     return render_template(
         'view.html',
@@ -73,8 +75,9 @@ def loc():
 def goo():
     item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
                             Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
-        outerjoin(Categories,Categories.id==Item.category_id).outerjoin(Subcategories,Subcategories.id==Categories.subcategory) \
-        .outerjoin(Type,Type.id==Subcategories.type).filter(Type.id==1).order_by(Item.id).all()
+        outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,
+                                                                           Subcategories.id == Categories.subcategory) \
+        .outerjoin(Type, Type.id == Subcategories.type).filter(Type.id == 1).order_by(Item.id).all()
     promo = Promo.query.all()
     return render_template(
         'view.html',
@@ -143,7 +146,9 @@ def register():
 @login_required
 def profile(username):
     user = User.query.filter_by(username=username).first_or_404()
-    pro = db.session.query(User.username,Address.address,Address.contact).outerjoin(Address,Address.user_id==User.id).all()
+    pro = (db.session.query(User.username, Address.address, Address.contact).outerjoin(Address,
+                                                                                       Address.user_id == User.id).filter(
+        User.username == username)).all()
     return render_template('profile.html', user=user, pro=pro)
 
 
@@ -171,10 +176,40 @@ def newitem():
 @app.route('/item/<item_name>')
 def page(item_name):
     item = (db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
-                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item).filter(Item.item_name==item_name)).first()
+                             Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item).filter(
+        Item.item_name == item_name)).first()
     return render_template(
         'page.html',
         title=item_name,
         year=datetime.now().year,
         item=item
     )
+
+@app.route('/edit/<item_name>', methods=['GET', 'POST'])
+def edititem(item_name):
+    item = db.session.query(Item.item_name, Item.original_price, Item.discount_price, Detail.detail_body,
+                            Detail.detail_img, Detail.detail_thumb).outerjoin(Detail, Item.id == Detail.item). \
+        outerjoin(Categories, Categories.id == Item.category_id).outerjoin(Subcategories,
+                                                                           Subcategories.id == Categories.subcategory) \
+        .outerjoin(Type, Type.id == Subcategories.type).filter(Item.item_name==item_name).all()
+    catnow = db.session.query(Categories).all()
+    cat = [(i.id, i.name) for i in catnow]
+    form = EditItemForm()
+    form.categories.choices = cat
+    if form.validate_on_submit():
+        item.id=form.itemid.data
+        item.item_name=form.itemname.data
+        item.category_id=form.categories.data
+        item.original_price=form.original.data
+        item.discount_price=form.discount.data
+        item.created_at=form.start.data
+        item.finish_at=form.end.data
+        item.item=form.itemid.data
+        item.detail_body=form.detail.data
+        item.detail_img=form.image.data,
+        item.detail_thumb=form.thumbnail.data
+        db.session.add(item)
+        db.session.commit()
+        flash('Congratulations, you are changed the Item!')
+        return redirect(url_for('Home'))
+    return render_template('edit.html', title='Edit Item', form=form)
