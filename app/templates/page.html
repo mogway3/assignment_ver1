@@ -12,18 +12,20 @@
 {% block content %}
     <div class="row w-100">
         <div class="col-md-9">
-            <h4>{{ title }}</h4>
             <div class="container">
-                <img src="//placehold.it/1200X800/" style="width:50%;height:50%;">
+                <h4 class="text-left">{{ title }}</h4>
+                <br>
+                <img src="{{ data.detail_img }}" style="width:50%;height:50%;">
             </div>
-            <div class="container">
-                <h4>Details</h4>
-                <h5></h5>
+            <div class="container panel-default text-left">
+                <div class="panel-title"><h4>Details</h4></div>
+                <div class="panel-body"><h5>{{ data.detail_body }}</h5></div>
             </div>
         </div>
-        <div class="col-md-3 align-self-center">Origina Price :
+        <div class="col-md-3 align-self-center"><h3>Origina Price : <s>{{ it.original_price }}</s></h3>
+            <br>
+            <h2>Discount Price : {{ it.discount_price }}</h2>
             <br>
         </div>
     </div>
-    {{ it.original_price }}
 {% endblock %}
