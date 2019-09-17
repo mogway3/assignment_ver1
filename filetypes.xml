@@ -1,0 +1,8 @@
+<application>
+  <component name="FileTypeManager" version="17">
+    <extensionMap>
+      <mapping pattern="Cloud9" type="YAML" />
+      <mapping pattern="security group" type="YAML" />
+    </extensionMap>
+  </component>
+</application>
